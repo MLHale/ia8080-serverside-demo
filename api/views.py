@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import *
 
 # Import models
 from django.db import models
@@ -12,6 +12,13 @@ from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+
+def home(request):
+  """
+  Send requests to / to the ember.js clientside app  """
+  
+  return render_to_response('index.html',
+                {}, RequestContext(request))
 
 #needed if you want to use all class-based views, replace foo and bar with respective names (e.g. forumposts-list)
 # class APIRoot(APIView):
